@@ -1,7 +1,23 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
 
-export default nextConfig;
+    return config
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: 'http://localhost:8080/:path*',
+      },
+    ]
+  },
+}
+
+export default nextConfig
