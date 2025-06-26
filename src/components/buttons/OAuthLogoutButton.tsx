@@ -1,5 +1,8 @@
 'use client'
 
+import { issueAccessToken } from '@/lib/issueAccessToken'
+import { useEffect } from 'react'
+
 export default function OAuthLogoutButton() {
   const onLogout = async () => {
     try {
@@ -7,7 +10,8 @@ export default function OAuthLogoutButton() {
         method: 'POST',
         credentials: 'include', // 쿠키 포함 필수!
       })
-      alert('성공적인 응답')
+
+      localStorage.removeItem('accessToken')
     } catch (error: unknown) {
       console.error('에러가 발생했습니다.', error)
     }
@@ -16,6 +20,16 @@ export default function OAuthLogoutButton() {
     window.location.href = '/'
   }
 
+  useEffect(() => {
+    issueAccessToken().then((accessToken) => {
+      if (accessToken) {
+        console.log('Access Token:', accessToken)
+        localStorage.setItem('accessToken', accessToken)
+      } else {
+        // Access token 없음 (정상 흐름일 수 있음)
+      }
+    })
+  }, [])
   return (
     <button id='logout' aria-label='logout' onClick={onLogout} className=''>
       Logout
