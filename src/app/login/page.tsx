@@ -1,6 +1,7 @@
-import GoogleLoginButton from '@/components/buttons/GoogleLogin'
 // import KakaoLoginButton from '@/components/buttons/KakaoLogin'
-import NaverLoginButton from '@/components/buttons/NaverLogin'
+
+import GoogleLoginButton from '@/components/buttons/googleLogin'
+import NaverLoginButton from '@/components/buttons/naverLogin'
 
 export default function LoginPage() {
   return (
