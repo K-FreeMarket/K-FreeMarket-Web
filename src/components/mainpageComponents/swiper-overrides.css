@@ -14,3 +14,7 @@
 .swiper-pagination-bullet-active {
   background: #6b7280; /* Tailwind의 gray-500 */
 }
+
+.swiper {
+  width: 100%;
+}

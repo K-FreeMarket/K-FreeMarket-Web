@@ -14,13 +14,16 @@ import Image from 'next/image'
 export default function MainBanner() {
   return (
     <Swiper
+      slidesPerView={'auto'}
+      observer={true}
+      observeParents={true}
       spaceBetween={30}
       centeredSlides
       autoplay={{ delay: 2500, disableOnInteraction: false }}
       pagination={{ clickable: true }}
       navigation
       modules={[Autoplay, Pagination, Navigation]}
-      className='mySwiper mx-auto aspect-[24/9] w-full max-w-screen-2xl'
+      className='mySwiper aspect-[21/9]'
     >
       <SwiperSlide>
         <Image src={exImage1} alt='배너 이미지' className='h-full w-full object-cover' />
