@@ -4,6 +4,22 @@ import { issueAccessToken } from '@/lib/issueAccessToken'
 import { useEffect } from 'react'
 
 export default function OAuthLogoutButton() {
+  useEffect(() => {
+    const getToken = localStorage.getItem('accessToken')
+    if (!getToken) {
+      issueAccessToken()
+        .then((accessToken) => {
+          if (accessToken) {
+            console.log('Access Token:', accessToken)
+            localStorage.setItem('accessToken', accessToken)
+          }
+        })
+        .catch((err) => {
+          console.error('Access token 발급 실패:', err.message)
+        })
+    }
+  }, [])
+
   const onLogout = async () => {
     try {
       await fetch('/logout', {
@@ -20,16 +36,6 @@ export default function OAuthLogoutButton() {
     window.location.href = '/'
   }
 
-  useEffect(() => {
-    issueAccessToken().then((accessToken) => {
-      if (accessToken) {
-        console.log('Access Token:', accessToken)
-        localStorage.setItem('accessToken', accessToken)
-      } else {
-        // Access token 없음 (정상 흐름일 수 있음)
-      }
-    })
-  }, [])
   return (
     <button id='logout' aria-label='logout' onClick={onLogout} className=''>
       Logout
