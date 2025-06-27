@@ -37,8 +37,13 @@ export default function OAuthLogoutButton() {
   }
 
   return (
-    <button id='logout' aria-label='logout' onClick={onLogout} className=''>
-      Logout
+    <button
+      id='logout'
+      aria-label='logout'
+      onClick={onLogout}
+      className='block w-full px-2 py-1 text-black hover:bg-gray-100'
+    >
+      로그아웃
     </button>
   )
 }

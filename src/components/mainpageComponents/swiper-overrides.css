@@ -1,0 +1,20 @@
+/* 화살표 네비게이션 색상 회색 */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #9ca3af; /* Tailwind의 gray-400 */
+}
+
+/* 페이지네이션 점 기본 회색 */
+.swiper-pagination-bullet {
+  background: #d1d5db; /* Tailwind의 gray-300 */
+  opacity: 1;
+}
+
+/* 활성 점 색상 */
+.swiper-pagination-bullet-active {
+  background: #6b7280; /* Tailwind의 gray-500 */
+}
+
+.swiper {
+  width: 100%;
+}
