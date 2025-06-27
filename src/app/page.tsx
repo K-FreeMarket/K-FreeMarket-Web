@@ -1,7 +1,11 @@
+import MainBanner from '@/components/mainpageComponents/MainBanner'
+import MainBestProduct from '@/components/mainpageComponents/MainBestProduct'
+
 export default function Home() {
   return (
-    <main className='row-start-2 flex flex-col items-center gap-[32px] sm:items-start'>
-      <span>K-FreeMarket</span>
+    <main className='row-start-2 flex h-full w-full flex-col gap-[32px] px-60'>
+      <MainBanner />
+      <MainBestProduct />
     </main>
   )
 }
