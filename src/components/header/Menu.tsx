@@ -7,7 +7,7 @@ export default function Menu() {
       aria-label='menu-box'
       className='flex w-full items-center justify-center gap-30 px-20'
     >
-      <Link href='/product' className='text-xl font-medium'>
+      <Link href='/products' className='text-xl font-medium'>
         상품
       </Link>
       <Link href='/question' className='text-xl font-medium'>
@@ -15,9 +15,6 @@ export default function Menu() {
       </Link>
       <Link href='/event' className='text-xl font-medium'>
         이벤트
-      </Link>
-      <Link href='/product/detail/1' className='text-xl font-medium'>
-        detail 페이지
       </Link>
     </div>
   )

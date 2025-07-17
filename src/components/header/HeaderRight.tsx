@@ -1,6 +1,6 @@
 import ShoppingCart from '@image/icons/shoppingbag.svg'
 import Link from 'next/link'
-import UserOption from '@/components/HeaderComponents/UserOption'
+import UserOption from '@/components/header/UserOption'
 
 export default function HeaderRight() {
   return (

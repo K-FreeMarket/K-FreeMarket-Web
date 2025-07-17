@@ -1,5 +1,5 @@
-import HeaderRight from '@/components/HeaderComponents/HeaderRight'
-import Menu from '@/components/HeaderComponents/Menu'
+import HeaderRight from '@/components/header/HeaderRight'
+import Menu from '@/components/header/Menu'
 import Link from 'next/link'
 
 export default function HeaderComponent() {
