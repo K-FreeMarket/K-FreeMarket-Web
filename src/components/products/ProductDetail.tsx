@@ -1,7 +1,8 @@
-import Image from 'next/image'
 import BlackBoxImage from '@image/images/blackboxImage.png'
 import BlackBoxImage2 from '@image/images/blackboxImage2.png'
 import ProductImageGallery from '@/components/products/detail/ProductImageGallery'
+import ProductOptionSelector from '@/components/products/detail/ProductOptionSelector'
+import ProductTabSection from '@/components/products/detail/ProductTabSection'
 interface ProductDetailProps {
   id: string
 }
@@ -9,6 +10,66 @@ export default function ProductDetail({ id }: ProductDetailProps) {
   const price = 115000
   const discountPrice = 100000
   const imageList = [BlackBoxImage, BlackBoxImage2, BlackBoxImage, BlackBoxImage2]
+  const reviews = [
+    {
+      id: 1,
+      createdAt: '2025-07-16',
+      content: '너무 좋아요!',
+      rating: 5,
+      user: '정승근',
+      options: ['64GB', '출장 설치'],
+    },
+    {
+      id: 2,
+      createdAt: '2025-07-16',
+      content: '좋아요!',
+      rating: 4,
+      user: '정수수',
+      options: ['64GB', '출장 설치'],
+    },
+  ]
+
+  const options = [
+    {
+      name: '설치 방법',
+      required: true,
+      values: ['직접', '출장'],
+    },
+    {
+      name: '용량 선택',
+      required: false,
+      values: ['64GB', '128GB'],
+    },
+  ]
+
+  const questions = [
+    {
+      id: 1,
+      title: '작동',
+      content: '작동하지 않습니다.',
+      is_private: true,
+      is_answered: false,
+      createAt: '2025-07-16',
+      user: '정승근',
+    },
+    {
+      id: 2,
+      title: '외부',
+      content: '깨져이습니다.',
+      is_private: true,
+      is_answered: true,
+      createAt: '2025-07-16',
+      user: '정승승',
+    },
+  ]
+
+  const answers = [
+    {
+      questId: 2,
+      content: '반품 요청해주세요',
+      createAt: '2025-07-16',
+    },
+  ]
   return (
     <div>
       {/* 상품 디테일 상부 */}
@@ -38,49 +99,25 @@ export default function ProductDetail({ id }: ProductDetailProps) {
             </div>
           </div>
           <hr className='mt-5 text-gray-300' />
-          <div className='mt-5 flex flex-col gap-5'>
-            <span className='text-lg font-semibold'>* 필수 선택</span>
-            <select className='h-10'>
-              <option value='블랙박스 + 직접'>블랙박스 + 직접</option>
-              <option value='블랙박스 + 출장'>블랙박스 + 출장</option>
-            </select>
-
-            <span className='text-lg font-semibold'>* 추가 선택</span>
-            <select className='h-10'>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-            </select>
-            <select className='h-10'>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-            </select>
-            <select className='h-10'>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-            </select>
-          </div>
+          <ProductOptionSelector options={options} />
           <hr className='mt-5 text-gray-300' />
-          <button className='mt-5 h-12 w-full rounded-md bg-gray-400 text-lg'>
+          <h2 className='mt-5 text-end text-2xl font-semibold'>총 {(100000).toLocaleString()}원</h2>
+          <button className='mt-5 h-12 w-full rounded-md bg-gray-300 text-lg font-semibold'>
             장바구니에 담기
           </button>
-          <button className='mt-5 h-12 w-full rounded-md bg-gray-400 text-lg'>바로 구매</button>
+          <button className='mt-5 h-12 w-full rounded-md bg-gray-300 text-lg font-semibold'>
+            바로 구매
+          </button>
         </div>
       </div>
 
-      <hr className='mt-10 text-gray-400' />
-
-      {/* 상품 detail 이미지 */}
-      <div className='mt-10 flex flex-col items-center justify-center'>
-        {imageList.map((img, index) => (
-          <Image src={img} key={index} alt={'대표이미지'} className='rounded-md object-cover' />
-        ))}
-      </div>
-      <hr className='mt-10 text-gray-400' />
-      {/* 상품 리뷰 */}
-      <div className='mt-10'></div>
+      {/* 상품 detail 이미지, Review, Q&A */}
+      <ProductTabSection
+        productDetailImage={imageList}
+        reviews={reviews}
+        questions={questions}
+        answers={answers}
+      />
     </div>
   )
 }
