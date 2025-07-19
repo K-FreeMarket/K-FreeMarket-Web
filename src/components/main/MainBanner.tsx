@@ -26,16 +26,36 @@ export default function MainBanner() {
       className='mySwiper aspect-[21/9]'
     >
       <SwiperSlide>
-        <Image src={exImage1} alt='배너 이미지' className='h-full w-full object-cover' />
+        <Image
+          src={exImage1}
+          alt='배너 이미지'
+          className='h-full w-full object-cover'
+          loading='lazy'
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={exImage2} alt='배너 이미지' className='h-full w-full object-cover' />
+        <Image
+          src={exImage2}
+          alt='배너 이미지'
+          className='h-full w-full object-cover'
+          loading='lazy'
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={exImage3} alt='배너 이미지' className='h-full w-full object-cover' />
+        <Image
+          src={exImage3}
+          alt='배너 이미지'
+          className='h-full w-full object-cover'
+          loading='lazy'
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image src={exImage2} alt='배너 이미지' className='h-full w-full object-cover' />
+        <Image
+          src={exImage2}
+          alt='배너 이미지'
+          className='h-full w-full object-cover'
+          loading='lazy'
+        />
       </SwiperSlide>
     </Swiper>
   )

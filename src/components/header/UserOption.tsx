@@ -28,6 +28,12 @@ export default function UserOption() {
               로그인
             </Link>
             <OAuthLogoutButton />
+            <Link
+              href='/mypage'
+              className='block px-2 py-1 text-center text-black hover:bg-gray-100'
+            >
+              마이페이지
+            </Link>
           </div>
         </>
       )}

@@ -1,9 +1,12 @@
+'use client'
 // import KakaoLoginButton from '@/components/buttons/KakaoLogin'
 
-import GoogleLoginButton from '@/components/buttons/googleLogin'
-import NaverLoginButton from '@/components/buttons/naverLogin'
+import GoogleLoginButton from '@/components/buttons/GoogleLogin'
+import NaverLoginButton from '@/components/buttons/NaverLogin'
+import { useHandleOAuthRedirect } from '@/lib/auth/handleOAuthRedirect'
 
 export default function LoginPage() {
+  useHandleOAuthRedirect()
   return (
     <main className='flex flex-col items-center justify-center gap-15'>
       <h1 className='text-2xl font-bold'>로그인</h1>
