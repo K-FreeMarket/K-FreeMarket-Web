@@ -9,7 +9,7 @@ export default function ProductPage() {
         <Image src={ProductsImage} alt='상품 이미지' loading='lazy' />
       </div>
 
-      <ProductGrid />
+      <ProductGrid productGridTitle={'상품'} />
     </main>
   )
 }

@@ -9,7 +9,7 @@ export default function EventPage() {
         <Image src={ProductsImage} alt='상품 이미지' loading='lazy' />
       </div>
 
-      <ProductGrid />
+      <ProductGrid productGridTitle={'할인 상품'} />
     </main>
   )
 }
