@@ -114,6 +114,7 @@ export default function ProductTabSection({
                 key={index}
                 alt='대표 이미지'
                 className='mb-5 rounded-md object-cover'
+                loading='lazy'
               />
             ))}
           </div>

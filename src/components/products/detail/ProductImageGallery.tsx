@@ -23,6 +23,7 @@ export default function ProductImageGallery({ imageList }: ProductImageGalleryIn
           src={imageList[selectedImageIndex]}
           alt={'대표이미지'}
           className='rounded-md object-cover'
+          loading='lazy'
         />
       </div>
       <div className='grid w-full grid-cols-5 gap-2'>
@@ -34,7 +35,12 @@ export default function ProductImageGallery({ imageList }: ProductImageGalleryIn
               handleSelectImage(index)
             }}
           >
-            <Image src={img} alt={'선택 페이지'} className='rounded-md object-cover' />
+            <Image
+              src={img}
+              alt={'선택 페이지'}
+              className='rounded-md object-cover'
+              loading='lazy'
+            />
           </div>
         ))}
       </div>

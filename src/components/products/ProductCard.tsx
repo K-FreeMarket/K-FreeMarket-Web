@@ -27,7 +27,7 @@ export default function ProductCard({
       href={`/products/detail/${id}`}
       className='flex h-auto w-full flex-col rounded-md text-base font-semibold'
     >
-      <Image src={imageSrc} alt={title} className='rounded-md object-cover' />
+      <Image src={imageSrc} alt={title} className='rounded-md object-cover' loading='lazy' />
       <div className='mt-5 flex flex-col gap-2 px-3'>
         <p className='flex-grow flex-wrap leading-snug font-bold'>{title}</p>
         <div className='flex w-full gap-4'>
