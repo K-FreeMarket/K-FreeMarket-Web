@@ -10,11 +10,11 @@ export default function Menu() {
       <Link href='/products' className='text-xl font-medium'>
         상품
       </Link>
-      <Link href='/question' className='text-xl font-medium'>
-        Q&A
-      </Link>
       <Link href='/event' className='text-xl font-medium'>
         이벤트
+      </Link>
+      <Link href='/question' className='text-xl font-medium'>
+        Q&A
       </Link>
     </div>
   )
