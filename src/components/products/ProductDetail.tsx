@@ -87,7 +87,7 @@ export default function ProductDetail({ id }: ProductDetailProps) {
             <span className='text-xl font-bold text-red-500'>{15}%</span>
             <span className='text-xl font-bold'>{discountPrice?.toLocaleString()}원</span>
           </div>
-          <hr className='mt-5 text-gray-300' />
+          <hr className='mt-5 text-gray-400' />
           <div className='mt-5 flex flex-col gap-2 text-base'>
             <div className='flex'>
               <span className='w-24 font-semibold'>배송비</span>{' '}
@@ -98,9 +98,9 @@ export default function ProductDetail({ id }: ProductDetailProps) {
               <span className='opacity-50'>평일 오후 3시까지 주문 시 오늘출발</span>
             </div>
           </div>
-          <hr className='mt-5 text-gray-300' />
+          <hr className='mt-5 text-gray-400' />
           <ProductOptionSelector options={options} />
-          <hr className='mt-5 text-gray-300' />
+          <hr className='mt-5 text-gray-400' />
           <h2 className='mt-5 text-end text-2xl font-semibold'>총 {(100000).toLocaleString()}원</h2>
           <button className='mt-5 h-12 w-full rounded-md bg-gray-300 text-lg font-semibold'>
             장바구니에 담기

@@ -3,8 +3,11 @@ import AddressSearch from '@/components/checkout/AddressSearch'
 export default function CheckoutForm() {
   return (
     <form className='w-full'>
+      <div className='flex h-16 w-full items-center justify-center bg-black text-2xl font-semibold text-white'>
+        주문 / 결제
+      </div>
       {/* 사용자 정보 이름 */}
-      <div className='flex w-full flex-col gap-2'>
+      <div className='mt-5 flex w-full flex-col gap-2'>
         <label id='userName' className='text-base font-semibold'>
           받는사람 <span className='text-red-500'>*</span>
         </label>
@@ -18,7 +21,8 @@ export default function CheckoutForm() {
 
       <div className='mt-5 flex w-full flex-col gap-2'>
         <label id='userName' className='text-base font-semibold'>
-          전화번호 <span className='text-red-500'>*</span>
+          전화번호 <span className='text-red-500'>*</span>{' '}
+          <span className='text-sm text-gray-400'>- 빼고 입력해주세요, 01000000000</span>
         </label>
         <input
           name='userName'
@@ -36,8 +40,12 @@ export default function CheckoutForm() {
         <AddressSearch />
       </div>
 
+      <hr className='mt-5 text-gray-400' />
       {/* 상품 정보 */}
-      <div></div>
+      <div className='mt-5'>
+        <h4 className='text-base font-semibold'>주문 상품</h4>
+        <div>상품이미지</div>
+      </div>
 
       {/* 결제 */}
       <div></div>
