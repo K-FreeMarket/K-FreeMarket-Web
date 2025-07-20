@@ -14,13 +14,17 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:8080/api/:path*',
+        destination: `${process.env.BASE_HTTP}/api/:path*`,
       },
       {
         source: '/logout',
-        destination: 'http://localhost:8080/logout',
+        destination: `${process.env.BASE_HTTP}/logout`,
       },
     ]
+  },
+
+  env: {
+    BASE_HTTP: process.env.BASE_HTTP,
   },
 }
 
