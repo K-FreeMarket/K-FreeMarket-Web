@@ -1,4 +1,7 @@
 import AddressSearch from '@/components/checkout/AddressSearch'
+import DeliveryMessageSelector from '@/components/checkout/DeliveryMessageSelector'
+import BlackBoxImage from '@image/images/blackboxImage.png'
+import Image from 'next/image'
 
 export default function CheckoutForm() {
   return (
@@ -38,13 +41,28 @@ export default function CheckoutForm() {
           주소 <span className='text-red-500'>*</span>
         </h4>
         <AddressSearch />
+        <DeliveryMessageSelector />
       </div>
 
       <hr className='mt-5 text-gray-400' />
       {/* 상품 정보 */}
       <div className='mt-5'>
         <h4 className='text-base font-semibold'>주문 상품</h4>
-        <div>상품이미지</div>
+        <div className='mt-5 flex w-full items-center justify-start gap-5 rounded-md border border-gray-400 p-4'>
+          <div className='h-32 w-32'>
+            <Image
+              src={BlackBoxImage}
+              alt={'상품 이미지'}
+              className='rounded-md object-cover'
+              loading='lazy'
+            />
+          </div>
+          <div className='flex h-32 w-auto flex-col'>
+            <span className='text-lg font-semibold'>상품 명칭</span>
+            <span>옵션</span>
+            <span>가격</span>
+          </div>
+        </div>
       </div>
 
       {/* 결제 */}
