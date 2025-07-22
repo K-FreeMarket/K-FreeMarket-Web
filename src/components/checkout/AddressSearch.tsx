@@ -36,8 +36,8 @@ export default function AddressSearch() {
   }
 
   return (
-    <div className='mt-2 space-y-2'>
-      <div className='flex gap-2'>
+    <div className='mt-2 space-y-5'>
+      <div className='flex gap-5'>
         <input
           type='text'
           value={postcode}

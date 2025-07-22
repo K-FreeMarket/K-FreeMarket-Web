@@ -47,7 +47,9 @@ export default function CheckoutForm() {
       <hr className='mt-5 text-gray-400' />
       {/* 상품 정보 */}
       <div className='mt-5'>
-        <h4 className='text-base font-semibold'>주문 상품</h4>
+        <h4 className='text-base font-semibold'>
+          주문 상품 <span className='text-red-500'>*</span>
+        </h4>
         <div className='mt-5 flex w-full items-center justify-start gap-5 rounded-md border border-gray-400 p-4'>
           <div className='h-32 w-32'>
             <Image
@@ -65,8 +67,20 @@ export default function CheckoutForm() {
         </div>
       </div>
 
+      <hr className='mt-5 text-gray-400' />
       {/* 결제 */}
-      <div></div>
+      <div className='mt-5 flex flex-col'>
+        <h4 className='text-base font-semibold'>
+          결제 선택하기 <span className='text-red-500'>*</span>
+        </h4>
+
+        <span>카드</span>
+        <span>네이버패이</span>
+      </div>
+
+      <button type='submit' className='w-full rounded-md bg-gray-400 p-3 text-xl font-semibold'>
+        결제
+      </button>
     </form>
   )
 }
