@@ -3,6 +3,7 @@ import BlackBoxImage2 from '@image/images/blackboxImage2.png'
 import ProductImageGallery from '@/components/products/detail/ProductImageGallery'
 import ProductOptionSelector from '@/components/products/detail/ProductOptionSelector'
 import ProductTabSection from '@/components/products/detail/ProductTabSection'
+import Link from 'next/link'
 interface ProductDetailProps {
   id: string
 }
@@ -102,12 +103,17 @@ export default function ProductDetail({ id }: ProductDetailProps) {
           <ProductOptionSelector options={options} />
           <hr className='mt-5 text-gray-400' />
           <h2 className='mt-5 text-end text-2xl font-semibold'>총 {(100000).toLocaleString()}원</h2>
-          <button className='mt-5 h-12 w-full rounded-md bg-gray-300 text-lg font-semibold'>
+          <button className='mt-5 h-12 w-full rounded-md bg-gray-300 text-lg font-semibold hover:bg-black hover:text-white'>
             장바구니에 담기
           </button>
-          <button className='mt-5 h-12 w-full rounded-md bg-gray-300 text-lg font-semibold'>
+          <Link
+            href={
+              '/checkout?product=세상에서%20가장%20멋지고%20사랑스러운%20블랙박스&imageSrc=BlackBoxImage&options=%5B%22직접%22%5D&price=100000'
+            }
+            className='mt-5 flex h-12 w-full items-center justify-center rounded-md bg-gray-300 text-lg font-semibold hover:bg-black hover:text-white'
+          >
             바로 구매
-          </button>
+          </Link>
         </div>
       </div>
 

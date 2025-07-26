@@ -6,7 +6,7 @@ import BlackBox from '@image/images/blackboxImage.png'
 
 const initialItems = [
   {
-    title: '세상에서 가장 멋진 블랙박스',
+    title: '세상에서 가장 멋진 블랙박스 0',
     imageSrc: BlackBox,
     options: ['직접 설치'],
     price: 100000,

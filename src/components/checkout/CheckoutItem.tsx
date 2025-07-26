@@ -2,7 +2,13 @@
 
 import Image, { StaticImageData } from 'next/image'
 import XmarkIcon from '@image/icons/xmark.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import BlackBoxImage from '@image/images/blackboxImage.png'
+
+const IMAGE_MAP: Record<string, StaticImageData> = {
+  BlackBoxImage,
+}
 
 type Item = {
   title: string
@@ -16,6 +22,8 @@ interface CheckoutItemProps {
 }
 
 export default function CheckoutItem({ initialItems }: CheckoutItemProps) {
+  const searchParams = useSearchParams()
+
   const [checkoutItems, setCheckoutItems] = useState<Item[]>(initialItems)
 
   const totalPrice = checkoutItems.reduce((sum, item) => sum + item.price, 0)
@@ -24,6 +32,32 @@ export default function CheckoutItem({ initialItems }: CheckoutItemProps) {
     const updated = checkoutItems.filter((_, i) => i !== index)
     setCheckoutItems(updated)
   }
+
+  useEffect(() => {
+    const product = searchParams.get('product') || ''
+    const imageSrcKey = searchParams.get('imageSrc') || ''
+    const optionsRaw = searchParams.get('options') || '[]'
+    const priceRaw = searchParams.get('price') || '0'
+
+    try {
+      const parsedOptions = JSON.parse(optionsRaw)
+      const parsedPrice = parseInt(priceRaw, 10)
+      const cleanKey = imageSrcKey.replaceAll('"', '')
+
+      if (product && IMAGE_MAP[cleanKey]) {
+        setCheckoutItems([
+          {
+            title: decodeURIComponent(product.replaceAll('"', '')),
+            imageSrc: IMAGE_MAP[cleanKey],
+            options: parsedOptions,
+            price: parsedPrice,
+          },
+        ])
+      }
+    } catch (e) {
+      console.error('쿼리 파싱 오류:', e)
+    }
+  }, [searchParams])
 
   return (
     <>
