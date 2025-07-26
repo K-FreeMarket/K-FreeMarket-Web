@@ -2,7 +2,7 @@
 // import KakaoLoginButton from '@/components/buttons/KakaoLogin'
 
 import GoogleLoginButton from '@/components/buttons/GoogleLogin'
-import NaverLoginButton from '@/components/buttons/NaverLogin'
+import NaverLoginButton from '@/components/buttons/naverLogin'
 import { useHandleOAuthRedirect } from '@/lib/auth/handleOAuthRedirect'
 
 export default function LoginPage() {

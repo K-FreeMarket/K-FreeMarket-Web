@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import HeaderComponent from '@/components/header/HeaderComponent'
 import Footer from '@/components/layouts/footer'
+import Script from 'next/script'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,6 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <Script
+          src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'
+          strategy='afterInteractive'
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} grid min-h-screen grid-rows-[55px_1fr_40px] items-center justify-items-center gap-16 font-[family-name:var(--font-geist-sans)] antialiased`}
       >
