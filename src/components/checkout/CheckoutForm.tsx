@@ -1,7 +1,27 @@
-import AddressSearch from '@/components/checkout/AddressSearch'
-import DeliveryMessageSelector from '@/components/checkout/DeliveryMessageSelector'
-import BlackBoxImage from '@image/images/blackboxImage.png'
-import Image from 'next/image'
+import AddressSelector from '@/components/checkout/AddressSelector'
+import CheckoutItem from '@/components/checkout/CheckoutItem'
+import PaymentMethodSelector from '@/components/checkout/PaymentMethodSelector'
+
+import BlackBox from '@image/images/blackboxImage.png'
+
+const initialItems = [
+  {
+    title: '세상에서 가장 멋진 블랙박스',
+    imageSrc: BlackBox,
+    options: ['직접 설치'],
+    price: 100000,
+  },
+]
+
+const initialAddress = [
+  {
+    name: '정승근',
+    mobileNumber: '01066807503',
+    postcode: '01618',
+    address: '서울 노원구 동일로227길 86 (상계동, 상계주공16단지아파트)',
+    detailAddress: '1604동 1410호',
+  },
+]
 
 export default function CheckoutForm() {
   return (
@@ -9,40 +29,8 @@ export default function CheckoutForm() {
       <div className='flex h-16 w-full items-center justify-center bg-black text-2xl font-semibold text-white'>
         주문 / 결제
       </div>
-      {/* 사용자 정보 이름 */}
-      <div className='mt-5 flex w-full flex-col gap-2'>
-        <label id='userName' className='text-base font-semibold'>
-          받는사람 <span className='text-red-500'>*</span>
-        </label>
-        <input
-          name='userName'
-          type='text'
-          placeholder='이름'
-          className='h-10 w-full rounded-md border border-gray-400 px-2'
-        ></input>
-      </div>
 
-      <div className='mt-5 flex w-full flex-col gap-2'>
-        <label id='userName' className='text-base font-semibold'>
-          전화번호 <span className='text-red-500'>*</span>{' '}
-          <span className='text-sm text-gray-400'>- 빼고 입력해주세요, 01000000000</span>
-        </label>
-        <input
-          name='userName'
-          type='text'
-          placeholder='전화번호'
-          className='h-10 w-full rounded-md border border-gray-400 px-2'
-        ></input>
-      </div>
-
-      {/* 주소 가져오기 */}
-      <div className='mt-5'>
-        <h4 className='text-base font-semibold'>
-          주소 <span className='text-red-500'>*</span>
-        </h4>
-        <AddressSearch />
-        <DeliveryMessageSelector />
-      </div>
+      <AddressSelector addressList={initialAddress} />
 
       <hr className='mt-5 text-gray-400' />
       {/* 상품 정보 */}
@@ -50,21 +38,7 @@ export default function CheckoutForm() {
         <h4 className='text-base font-semibold'>
           주문 상품 <span className='text-red-500'>*</span>
         </h4>
-        <div className='mt-5 flex w-full items-center justify-start gap-5 rounded-md border border-gray-400 p-4'>
-          <div className='h-32 w-32'>
-            <Image
-              src={BlackBoxImage}
-              alt={'상품 이미지'}
-              className='rounded-md object-cover'
-              loading='lazy'
-            />
-          </div>
-          <div className='flex h-32 w-auto flex-col'>
-            <span className='text-lg font-semibold'>상품 명칭</span>
-            <span>옵션</span>
-            <span>가격</span>
-          </div>
-        </div>
+        <CheckoutItem initialItems={initialItems} />
       </div>
 
       <hr className='mt-5 text-gray-400' />
@@ -74,11 +48,13 @@ export default function CheckoutForm() {
           결제 선택하기 <span className='text-red-500'>*</span>
         </h4>
 
-        <span>카드</span>
-        <span>네이버패이</span>
+        <PaymentMethodSelector methods={['카드', '네이버페이', '카카오페이']} />
       </div>
 
-      <button type='submit' className='w-full rounded-md bg-gray-400 p-3 text-xl font-semibold'>
+      <button
+        type='submit'
+        className='mt-5 w-full rounded-md bg-gray-400 p-3 text-xl font-semibold hover:bg-black hover:text-white'
+      >
         결제
       </button>
     </form>
