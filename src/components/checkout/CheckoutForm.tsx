@@ -2,6 +2,7 @@ import AddressSelector from '@/components/checkout/AddressSelector'
 import CheckoutItem from '@/components/checkout/CheckoutItem'
 import PaymentMethodSelector from '@/components/checkout/PaymentMethodSelector'
 import BlackBox from '@image/images/blackboxImage.png'
+import { Suspense } from 'react'
 
 const initialItems = [
   {
@@ -37,7 +38,9 @@ export default function CheckoutForm() {
         <h4 className='text-base font-semibold'>
           주문 상품 <span className='text-red-500'>*</span>
         </h4>
-        <CheckoutItem initialItems={initialItems} />
+        <Suspense fallback={<div>상품 정보를 불러오는 중...</div>}>
+          <CheckoutItem initialItems={initialItems} />
+        </Suspense>
       </div>
 
       <hr className='mt-5 text-gray-400' />
