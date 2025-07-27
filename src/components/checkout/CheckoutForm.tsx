@@ -1,7 +1,6 @@
 import AddressSelector from '@/components/checkout/AddressSelector'
 import CheckoutItem from '@/components/checkout/CheckoutItem'
 import PaymentMethodSelector from '@/components/checkout/PaymentMethodSelector'
-
 import BlackBox from '@image/images/blackboxImage.png'
 
 const initialItems = [
