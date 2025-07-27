@@ -13,10 +13,18 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/:path*',
-        destination: 'http://localhost:8080/:path*',
+        source: '/api/:path*',
+        destination: `${process.env.BASE_HTTP}/api/:path*`,
+      },
+      {
+        source: '/logout',
+        destination: `${process.env.BASE_HTTP}/logout`,
       },
     ]
+  },
+
+  env: {
+    BASE_HTTP: process.env.BASE_HTTP,
   },
 }
 

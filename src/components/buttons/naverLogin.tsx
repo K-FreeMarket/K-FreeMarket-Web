@@ -16,7 +16,7 @@ export default function NaverLoginButton() {
       onClick={onNaverLogin}
       className='cursor-pointer'
     >
-      <Image src={NaverLoginWhiteImage} alt='네이버 이미지' height={40} width={40} />
+      <Image src={NaverLoginWhiteImage} alt='네이버 이미지' height={40} width={40} loading='lazy' />
     </button>
   )
 }
