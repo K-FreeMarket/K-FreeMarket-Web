@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-import NaverLoginWhiteImage from '@image/images/btnG_아이콘원형.png'
+import NaverLoginWhiteImage from '@image/images/btnG.png'
 
 export default function NaverLoginButton() {
   const onNaverLogin = () => {
