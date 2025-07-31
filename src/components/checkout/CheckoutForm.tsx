@@ -16,10 +16,10 @@ const initialItems = [
 const initialAddress = [
   {
     name: '정승근',
-    mobileNumber: '01066807503',
-    postcode: '01618',
-    address: '서울 노원구 동일로227길 86 (상계동, 상계주공16단지아파트)',
-    detailAddress: '1604동 1410호',
+    mobileNumber: '01000000000',
+    postcode: '00000',
+    address: '서울 노원구 동일로000길 00 (상계동, 상계주공0단지아파트)',
+    detailAddress: '1000동 0000호',
   },
 ]
 
